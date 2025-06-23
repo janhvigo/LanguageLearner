@@ -5,7 +5,7 @@ from Levenshtein import ratio
 from unidecode import unidecode
 from deep_translator import GoogleTranslator 
 
-st.title("Language Similarity Flashcards")
+st.title("Learn from your Native Language 🥳")
 
 st.sidebar.header("Let's Start Learning!")
 
@@ -97,7 +97,11 @@ if lang_to_learn and native_lang:
         selected_words = [k for k, _ in top_matches]
         selected_meanings = get_meanings(selected_words, src_lang=lang_to_learn, dest_lang=native_lang)
 
-        st.subheader("Flashcards (Top Similar Words)")
+        st.markdown(
+            f"<h3>Flashcards <span style='color:green'>{native_lang}</span> → "
+            f"<span style='color:blue'>{lang_to_learn}</span></h3>",
+            unsafe_allow_html=True
+        )
         for word, score in top_matches:
             st.markdown("---")
             with st.expander(f"{word}"):
