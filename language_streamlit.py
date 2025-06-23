@@ -86,6 +86,31 @@ def get_meanings(words, src_lang, dest_lang):
             meanings[word] = "[No translation]"
     return meanings
 
+language_colors = {
+    "English": "red",
+    "German": "green",
+    "French": "blue",
+    "Italian": "orange",
+    "Spanish": "purple",
+    "Portuguese": "teal",
+    "Dutch": "brown",
+    "Swedish": "darkcyan",
+    "Danish": "darkorange",
+    "Norwegian": "goldenrod",
+    "Finnish": "indigo",
+    "Turkish": "crimson",
+    "Arabic": "darkgreen",
+    "Farsi (Persian)": "darkslateblue",
+    "Hindi": "maroon",
+    "Russian": "firebrick",
+    "Polish": "darkred",
+    "Greek": "mediumvioletred",
+    "Czech": "slateblue",
+    "Hungarian": "darkorchid",
+    "Romanian": "seagreen"
+}
+
+
 if lang_to_learn and native_lang:
     with st.spinner("Fetching data and building flashcards..."):
         fetched_words = fetch_top_words(lang_to_learn, fallback_lang, buffer_count=100)
@@ -99,8 +124,8 @@ if lang_to_learn and native_lang:
         selected_meanings = get_meanings(selected_words, src_lang=lang_to_learn, dest_lang=native_lang)
 
         st.markdown(
-            f"<h3>Flashcards <span style='color:green'>{native_lang}</span> → "
-            f"<span style='color:blue'>{lang_to_learn}</span></h3>",
+            f"<h3>Flashcards <span style='color:{language_colors[native_lang]}'>{native_lang}</span> → "
+            f"<span style='color:{language_colors[lang_to_learn]}'>{lang_to_learn}</span></h3>",
             unsafe_allow_html=True
         )
         for word, score in top_matches:
