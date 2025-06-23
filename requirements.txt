@@ -1,0 +1,6 @@
+streamlit
+requests
+word2word
+python-Levenshtein
+googletrans==4.0.0-rc1
+unidecode
