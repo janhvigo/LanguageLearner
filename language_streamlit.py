@@ -5,9 +5,9 @@ from Levenshtein import ratio
 from unidecode import unidecode
 from deep_translator import GoogleTranslator 
 
-st.title("Learn from your Native Language 🥳")
+st.title("Learn from Your Native Language")
 
-st.sidebar.header("Let's Start Learning!")
+st.sidebar.header("Let's Start Learning ✏️")
 
 language_options = {
     "English": "en",
