@@ -10,28 +10,28 @@ st.markdown("""The algorithm behind this tool is designed to make language learn
 
 st.sidebar.header("Let's Start Learning ✏️")
 
-language_colors = {
-    "en": "red",
-    "de": "green",
-    "fr": "blue",
-    "it": "orange",
-    "es": "purple",
-    "pt": "teal",
-    "nl": "brown",
-    "sv": "darkcyan",
-    "da": "darkorange",
-    "no": "goldenrod",
-    "fi": "indigo",
-    "tr": "crimson",
-    "ar": "darkgreen",
-    "fa": "darkslateblue",
-    "hi": "maroon",
-    "ru": "firebrick",
-    "pl": "darkred",
-    "el": "mediumvioletred",
-    "cs": "slateblue",
-    "hu": "darkorchid",
-    "ro": "seagreen"
+language_options = {
+    "English": "en",
+    "German": "de",
+    "French": "fr",
+    "Italian": "it",
+    "Spanish": "es",
+    "Portuguese": "pt",
+    "Dutch": "nl",
+    "Swedish": "sv",
+    "Danish": "da",
+    "Norwegian": "no",
+    "Finnish": "fi",
+    "Turkish": "tr",
+    "Arabic": "ar",
+    "Farsi (Persian)": "fa",
+    "Hindi": "hi",
+    "Russian": "ru",
+    "Polish": "pl",
+    "Greek": "el",
+    "Czech": "cs",
+    "Hungarian": "hu",
+    "Romanian": "ro"
 }
 
 lang_to_learn_label = st.sidebar.selectbox("Language you want to learn", list(language_options.keys()), index=3)
@@ -87,27 +87,27 @@ def get_meanings(words, src_lang, dest_lang):
     return meanings
 
 language_colors = {
-    "English": "red",
-    "German": "green",
-    "French": "blue",
-    "Italian": "orange",
-    "Spanish": "purple",
-    "Portuguese": "teal",
-    "Dutch": "brown",
-    "Swedish": "darkcyan",
-    "Danish": "darkorange",
-    "Norwegian": "goldenrod",
-    "Finnish": "indigo",
-    "Turkish": "crimson",
-    "Arabic": "darkgreen",
-    "Farsi (Persian)": "darkslateblue",
-    "Hindi": "maroon",
-    "Russian": "firebrick",
-    "Polish": "darkred",
-    "Greek": "mediumvioletred",
-    "Czech": "slateblue",
-    "Hungarian": "darkorchid",
-    "Romanian": "seagreen"
+    "en": "red",
+    "de": "green",
+    "fr": "blue",
+    "it": "orange",
+    "es": "purple",
+    "pt": "teal",
+    "nl": "brown",
+    "sv": "darkcyan",
+    "da": "darkorange",
+    "no": "goldenrod",
+    "fi": "indigo",
+    "tr": "crimson",
+    "ar": "darkgreen",
+    "fa": "darkslateblue",
+    "hi": "maroon",
+    "ru": "firebrick",
+    "pl": "darkred",
+    "el": "mediumvioletred",
+    "cs": "slateblue",
+    "hu": "darkorchid",
+    "ro": "seagreen"
 }
 
 
