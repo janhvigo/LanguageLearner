@@ -10,28 +10,28 @@ st.markdown("""The algorithm behind this tool is designed to make language learn
 
 st.sidebar.header("Let's Start Learning ✏️")
 
-language_options = {
-    "English": "en",
-    "German": "de",
-    "French": "fr",
-    "Italian": "it",
-    "Spanish": "es",
-    "Portuguese": "pt",
-    "Dutch": "nl",
-    "Swedish": "sv",
-    "Danish": "da",
-    "Norwegian": "no",
-    "Finnish": "fi",
-    "Turkish": "tr",
-    "Arabic": "ar",
-    "Farsi (Persian)": "fa",
-    "Hindi": "hi",
-    "Russian": "ru",
-    "Polish": "pl",
-    "Greek": "el",
-    "Czech": "cs",
-    "Hungarian": "hu",
-    "Romanian": "ro"
+language_colors = {
+    "en": "red",
+    "de": "green",
+    "fr": "blue",
+    "it": "orange",
+    "es": "purple",
+    "pt": "teal",
+    "nl": "brown",
+    "sv": "darkcyan",
+    "da": "darkorange",
+    "no": "goldenrod",
+    "fi": "indigo",
+    "tr": "crimson",
+    "ar": "darkgreen",
+    "fa": "darkslateblue",
+    "hi": "maroon",
+    "ru": "firebrick",
+    "pl": "darkred",
+    "el": "mediumvioletred",
+    "cs": "slateblue",
+    "hu": "darkorchid",
+    "ro": "seagreen"
 }
 
 lang_to_learn_label = st.sidebar.selectbox("Language you want to learn", list(language_options.keys()), index=3)
