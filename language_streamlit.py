@@ -6,9 +6,7 @@ from unidecode import unidecode
 from deep_translator import GoogleTranslator 
 
 st.title("Learn from Your Native Language")
-st.markdown("""
-The algorithm behind this tool is designed to make language learning more intuitive by starting with familiar vocabulary. It begins by retrieving the most common words in the target language, then translates each word into the user’s native language using a bilingual dictionary. To identify which words are most familiar, it calculates a similarity score for each word pair based on Levenshtein distance. The words are then sorted from most to least similar, ensuring that learners are first introduced to vocabulary that closely resembles their native language. This approach builds early confidence and makes the learning process feel more natural and accessible.
-""")
+st.markdown("""The algorithm behind this tool is designed to make language learning more intuitive by starting with familiar vocabulary. It begins by retrieving the most common words in the target language, then translates each word into the user’s native language using a bilingual dictionary. To identify which words are most familiar, it calculates a similarity score for each word pair based on Levenshtein distance. The words are then sorted from most to least similar, ensuring that learners are first introduced to vocabulary that closely resembles their native language. This approach builds early confidence and makes the learning process feel more natural and accessible.""")
 
 st.sidebar.header("Let's Start Learning ✏️")
 
