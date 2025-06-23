@@ -2,8 +2,8 @@ import streamlit as st
 import requests
 from word2word import Word2word
 from Levenshtein import ratio
-from googletrans import Translator
 from unidecode import unidecode
+from deep_translator import GoogleTranslator 
 
 st.title("Language Similarity Flashcards")
 
@@ -36,7 +36,6 @@ language_options = {
 lang_to_learn_label = st.sidebar.selectbox("Language you want to learn", list(language_options.keys()), index=3)
 native_lang_label = st.sidebar.selectbox("Your native language", list(language_options.keys()), index=1)
 
-# Get the corresponding ISO codes
 lang_to_learn = language_options[lang_to_learn_label]
 native_lang = language_options[native_lang_label]
 
@@ -44,7 +43,7 @@ word_count = st.sidebar.slider("How many words to learn?", min_value=5, max_valu
 fallback_lang = "en"
 
 @st.cache_data(show_spinner=False)
-def fetch_top_words(language, fallback, buffer_count=None):  # fetch all by default
+def fetch_top_words(language, fallback, buffer_count=None):
     base_url = "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2016"
     
     def get_words(lang):
@@ -63,7 +62,7 @@ def get_translations(top_words, lang_to_learn, native_lang):
     translations = {}
     for word in top_words:
         try:
-            translations[word] = learn2native(word)[0]  # take top match
+            translations[word] = learn2native(word)[0]
         except Exception:
             translations[word] = None
     return translations
@@ -77,30 +76,26 @@ def get_similarity_scores(translations):
 
 @st.cache_data(show_spinner=False)
 def get_meanings(words, src_lang, dest_lang):
-    translator = Translator()
     meanings = {}
     for word in words:
         try:
-            translated = translator.translate(word, src=src_lang, dest=dest_lang)
-            meanings[word] = translated.text
+            translated = GoogleTranslator(source=src_lang, target=dest_lang).translate(word)
+            meanings[word] = translated
         except:
             meanings[word] = "[No translation]"
     return meanings
 
 if lang_to_learn and native_lang:
     with st.spinner("Fetching data and building flashcards..."):
-        fetched_words = fetch_top_words(lang_to_learn, fallback_lang, buffer_count=100)  # fetch more than needed
+        fetched_words = fetch_top_words(lang_to_learn, fallback_lang, buffer_count=100)
         translations = get_translations(fetched_words, lang_to_learn, native_lang)
-
         valid_translations = {word: trans for word, trans in translations.items() if trans is not None}
-
         similarity_scores = get_similarity_scores(valid_translations)
-
         sorted_matches = sorted(similarity_scores.items(), key=lambda x: x[1], reverse=True)
         top_matches = sorted_matches[:word_count]
 
         selected_words = [k for k, _ in top_matches]
-        selected_meanings = get_meanings(selected_words, dest_lang=native_lang, src_lang=lang_to_learn)
+        selected_meanings = get_meanings(selected_words, src_lang=lang_to_learn, dest_lang=native_lang)
 
         st.subheader("Flashcards (Top Similar Words)")
         for word, score in top_matches:
