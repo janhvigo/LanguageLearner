@@ -63,7 +63,7 @@ def get_translations(top_words, lang_to_learn, native_lang):
     translations = {}
     for word in top_words:
         try:
-            translations[word] = learn2native(word)[0]
+            translations[word] = translations[word] = GoogleTranslator(source=lang_to_learn, target=native_lang).translate(word)
         except Exception:
             translations[word] = None
     return translations
