@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-from word2word import Word2word
 from Levenshtein import ratio
 from unidecode import unidecode
 from deep_translator import GoogleTranslator 
@@ -59,7 +58,6 @@ def fetch_top_words(language, fallback, buffer_count=None):
 
 @st.cache_data(show_spinner=False)
 def get_translations(top_words, lang_to_learn, native_lang):
-    learn2native = Word2word(lang_to_learn, native_lang)
     translations = {}
     for word in top_words:
         try:
