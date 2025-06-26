@@ -121,7 +121,7 @@ if lang_to_learn and native_lang:
         selected_words = [k for k, _ in top_matches]
 
         st.markdown(
-            f"<h3>Flashcards <span style='color:{language_colors[lang_to_learn]}'>{lang_to_learn}</span> → "
+            f"<h3>Flashcards <span style='color:{language_colors[lang_to_learn]}'>{lang_to_learn}</span> → " 
             f"<span style='color:{language_colors[native_lang]}'>{native_lang}</span></h3>",
             unsafe_allow_html=True
         )
