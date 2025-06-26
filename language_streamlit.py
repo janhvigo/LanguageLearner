@@ -61,7 +61,7 @@ def get_translations(top_words, lang_to_learn, native_lang):
     translations = {}
     for word in top_words:
         try:
-            translations[word] = translations[word] = GoogleTranslator(source=lang_to_learn, target=native_lang).translate(word)
+            translations[word] = GoogleTranslator(source=lang_to_learn, target=native_lang).translate(word)
         except Exception:
             translations[word] = None
     return translations
@@ -119,11 +119,10 @@ if lang_to_learn and native_lang:
         top_matches = sorted_matches[:word_count]
 
         selected_words = [k for k, _ in top_matches]
-        selected_meanings = get_meanings(selected_words, src_lang=lang_to_learn, dest_lang=native_lang)
 
         st.markdown(
-            f"<h3>Flashcards <span style='color:{language_colors[native_lang]}'>{native_lang}</span> → "
-            f"<span style='color:{language_colors[lang_to_learn]}'>{lang_to_learn}</span></h3>",
+            f"<h3>Flashcards <span style='color:{language_colors[lang_to_learn]}'>{lang_to_learn}</span> → "
+            f"<span style='color:{language_colors[native_lang]}'>{native_lang}</span></h3>",
             unsafe_allow_html=True
         )
         for word, score in top_matches:
